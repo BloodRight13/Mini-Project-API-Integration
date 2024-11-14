@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Pokémon Details</title>
+      <link rel="stylesheet" href="details_styles.css">
+  </head>
+  
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Pokedex Finder</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="homepage.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="searchpage.html">Search</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="detailspage.html">Details</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="generationpage.html">Generations</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <body>
+      <div class="container">
+          <h1>Pokémon Details</h1>
+          <input type="text" id="pokemonName" placeholder="Enter Pokémon name">
+          <button class="red-button" onclick="fetchPokemon()">Search</button>
+          <div id="pokemonDetails" class="details"></div>
+      </div>
+
+      <script>
+        async function fetchPokemon() {
+          const pokemonName = document.getElementById('pokemonName').value.toLowerCase();
+          const url = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
+
+          try {
+              const response = await fetch(url);
+              if (!response.ok) {
+                  throw new Error('Pokémon not found');
+              }
+              const data = await response.json();
+              displayPokemon(data);
+          } catch (error) {
+              document.getElementById('pokemonDetails').innerHTML = `<p>${error.message}</p>`;
+          }
+        }
+
+        function displayPokemon(data) {
+            const details = `
+                <h2>${data.name.toUpperCase()}</h2>
+                <img src="${data.sprites.front_default}" alt="${data.name}">
+                <p><strong>Height:</strong> ${data.height}</p>
+                <p><strong>Weight:</strong> ${data.weight}</p>
+                <p><strong>Type:</strong> ${data.types.map(type => type.type.name).join(', ')}</p>
+                <p><strong>Base Stats:</strong></p>
+                <ul>
+                    ${data.stats.map(stat => `<li>${stat.stat.name}: ${stat.base_stat}</li>`).join('')}
+                </ul>
+
+            `;
+            document.getElementById('pokemonDetails').innerHTML = details;
+          }
+      </script>
+  </body>
+</html>

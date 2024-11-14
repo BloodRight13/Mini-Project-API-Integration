@@ -1,0 +1,50 @@
+#pokemon-result img {
+    width: 150px;
+    height: auto;
+  }
+  
+  #pokemon-result h3 {
+    margin-top: 20px;
+  }
+  .pokemon-card {
+    margin: 10px;
+    text-align: center;
+}
+.pokemon-card img {
+    width: 100px;
+    height: auto;
+}
+.red-button {
+  background-color: red;
+  color: white; /* Text color */
+  border: none; /* No border */
+  padding: 10px 20px; /* Padding for size */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+.red-button:hover {
+  background-color: darkred; /* Darker red on hover */
+}
+
+#pokemon-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.pokemon-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  padding: 10px;
+  width: 150px;
+  text-align: center;
+}
+
+.pokemon-card img {
+  width: 100px;
+  height: 100px;
+}

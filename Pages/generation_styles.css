@@ -1,0 +1,37 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+nav {
+    margin-bottom: 20px;
+}
+
+#pokemon-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.pokemon-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 10px;
+    width: 150px;
+    text-align: center;
+}
+
+.red-button {
+    background-color: red;
+    color: white; /* Text color */
+    border: none; /* No border */
+    padding: 10px 20px; /* Padding for size */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.red-button:hover {
+    background-color: darkred; /* Darker red on hover */
+}

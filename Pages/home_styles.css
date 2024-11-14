@@ -1,0 +1,18 @@
+.red-button {
+    background-color: red;
+    color: white; /* Text color */
+    border: none; /* No border */
+    padding: 10px 20px; /* Padding for size */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.red-button:hover {
+    background-color: darkred; /* Darker red on hover */
+}
+
+.jumbotron{
+    background-color: red;
+}
+   
